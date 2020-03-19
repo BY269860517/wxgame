@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CA运营支撑管理平台" />
+<meta name="description" content="CA运营支撑管理平台" />
+<title>CA运营支撑管理平台</title>
+<link href="../css/css.css" rel="stylesheet" type="text/css"/>
+<link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
+<link href="../css/pop.css" rel="stylesheet" type="text/css"/>
+<link href="../css/jquery.webui-popover.min.css" rel="stylesheet" type="text/css"/>
+<link href="../css/bootstrap-date.css" rel="stylesheet" type="text/css" />
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+<div class="breadcrumb"><a>权限管理</a></div>
+
+<div class="layout_tx layout_margin la_rela" style="height:430px;">
+    <div class="kuang_title">账号列表
+    	<div class="fr">
+            <input type="text"  name="" size="20" placeholder="申请账号名" class="mgr_r" />
+            <input type="text"  name="" size="20" placeholder="申请账手机号" class="mgr_r" />
+            <span class="btn">查询</span>
+            <span class="btn">重置</span>
+        </div>
+	</div>
+  
+	<table  border="0" align="center" cellpadding="2" cellspacing="0" class="table">
+        <tr>
+          <th width="8%">#</th>
+          <th width="25%">申请账号名</th>
+          <th width="25%">申请账姓名</th>
+          <th width="25%">申请账手机号</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>admin</td>
+          <td>超级管理员</td>
+          <td>13876435678</td>
+          <td>
+            <a class="show-pop" data-placement="bottom" data-content="<span>权限管理</span>"><img src="../img/fenpei.png"/></a>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>dengjl</td>
+          <td>管理员</td>
+          <td>13563456787</td>
+          <td>
+            <a class="show-pop" data-placement="bottom" data-content="<span>权限管理</span>"><img src="../img/fenpei.png"/></a>
+          </td>
+        </tr>
+	</table>
+
+
+  <table  border="0" align="center" cellpadding="2" cellspacing="0" class="fenye">
+    <tr>
+      <td width="16px">&nbsp;</td>
+      <td><dl class="select yemashu">
+        <dt class="yemashu">10页/条</dt>
+        <dd class="yemashu1"> <span class="triangle-up"></span>
+          <ul>
+            <li><a href="#">10页/条</a></li>
+            <li><a href="#">20页/条</a></li>
+          </ul>
+        </dd>
+      </dl></td>
+      <td align="right"><span class="yema"><img src="../img/qian.png"/></span><span class="yemaon">1</span><span class="yema">2</span><span class="yema">3</span><span class="yema"><img src="../img/hou.png"/></span><span class="ye_qw">前往</span>
+        <input name="textfield5" type="text" class="yema_qw"/>
+        <span class="ye_qw">页</span></td>
+      <td width="6px">&nbsp;</td>
+    </tr>
+  </table>
+  
+</div>
+
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/select.js" type="text/javascript"></script>
+<script src="../js/popup.js" type="text/javascript"></script>
+<script src="../js/jquery.webui-popover.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap-data/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap-data/bootstrap-datetimepicker.zh-CN.js" type="text/javascript"></script>
+<script>
+	(function(){
+		var settings = {
+			trigger:'hover',
+			multi:true,						
+			closeable:false,
+			style:'',
+			padding:true
+		};
+		function initPopover(){					
+			$('a.show-pop').webuiPopover('destroy').webuiPopover(settings);	
+		}
+		initPopover();	
+	})();	
+	
+	$("#datetimeStart").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView:'month',
+        language: 'zh-CN',
+        autoclose:true,
+        startDate:new Date()
+    }).on("click",function(){
+        $("#datetimeStart").datetimepicker("setEndDate",$("#datetimeEnd").val())
+    });
+    $("#datetimeEnd").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView:'month',
+        language: 'zh-CN',
+        autoclose:true,
+        startDate:new Date()
+    }).on("click",function(){
+        $("#datetimeEnd").datetimepicker("setStartDate",$("#datetimeStart").val())
+    });
+	
+	/*弹窗共用操作*/
+	function showPopBox(index){
+		var box = $('.pop_inner');
+		var popClose = $('.pop_close');
+		box.hide().eq(index).show();
+		$('#popShow').popupOpen();
+		popClose.click(function(){
+			$('#popShow').hide();
+			$('#popShow').popupClose();
+		});
+	}
+	
+	function closePopBox(){
+		$('#popShow').hide();
+		$('#popShow').popupClose();
+	}
+
+</script>
+
+</body>
+</html>

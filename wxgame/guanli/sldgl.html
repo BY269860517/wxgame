@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CA运营支撑管理平台" />
+<meta name="description" content="CA运营支撑管理平台" />
+<title>CA运营支撑管理平台</title>
+<link href="../css/css.css" rel="stylesheet" type="text/css"/>
+<link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
+<link href="../css/jquery.webui-popover.min.css" rel="stylesheet" type="text/css"/>
+<link href="../css/pop.css" rel="stylesheet" type="text/css"/>
+<link href="../css/bootstrap-date.css" rel="stylesheet" type="text/css" />
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+<div class="breadcrumb"><a>受理点管理</a></div>
+
+<div class="layout_tx layout_margin la_rela">
+    <div class="kuang_title">查询 <a href="sldgl_add.html"><span class="tk_btn fr"><img src="../img/jia_icon.png"> 新增</span></a></div>
+    <table border="0" cellspacing="0" class="table_cx">
+      <tbody>
+        <tr>
+          <td width="220"><input type="text" name="" placeholder="企业名称" /></td>
+          <td width="220"><input type="text" name="" placeholder="企业统一社会代码" /></td>
+          <td width="220"><input type="text" name="" placeholder="联系人姓名" /></td>
+          <td width="220"><input type="text" name="" placeholder="联系人电话" /></td>
+          <td width="200">
+            <dl class="select">
+                <dt><span class="sel_placeholder">设备ID</span></dt>
+                <dd>
+                    <span class="triangle-up"></span>
+                    <ul>
+                          <li><a href="jascript:;">全部</a></li>
+                    </ul>
+                </dd>
+            </dl>
+          </td>
+        </tr>
+        <tr>
+          <td width="220"><input type="text" class="input_date" name="" placeholder="申请开始时间" id="datetimeStart"></td>
+          <td width="220"><input type="text" class="input_date" name="" placeholder="申请结束时间" id="datetimeEnd" /></td>
+          <td colspan="3" class="tab_te_r"><span class="btn">查询</span><span class="btn">重置</span></td>
+        </tr>
+      </tbody>
+  </table>
+  
+  <table  border="0" align="center" cellpadding="2" cellspacing="0" class="table">
+    <tr>
+      <th width="12%">企业名称</th>
+      <th width="12%">统一社会代码</th>
+      <th width="12%">申请时间</th>
+      <th width="10%">联系人</th>
+      <th width="16%">联系电话</th>
+      <th width="16%">设备ID</th>
+      <th width="8%">状态</th>
+      <th>操作</th>
+    </tr>
+    <tr>
+      <td>卓望</td>
+      <td>*****</td>
+      <td>2018-9-3</td>
+      <td>张三</td>
+      <td>13800138000</td>
+      <td>sign-s300-2222</td>
+      <td>已激活</td>
+      <td>
+        <a href="sldgl_detail.html" class="show-pop" data-placement="bottom"  data-content="<span>详情</span>"><img src="../img/chakan.png"/></a>
+        <a onClick="showPopBox(0)" class="show-pop" data-placement="bottom" data-content="<span>注销</span>"><img src="../img/zhuxiao.png"></a>
+      </td>
+    </tr>
+    <tr>
+      <td>卓望</td>
+      <td>********</td>
+      <td>2018-8-1</td>
+      <td>李四</td>
+      <td>13800138001</td>
+      <td>sign-s300-2222</td>
+      <td>未激活</td>
+      <td>
+        <a href="sldgl_detail.html" class="show-pop" data-placement="bottom"  data-content="<span>详情</span>"><img src="../img/chakan.png"/></a>
+      </td>
+    </tr>
+  </table>
+  <table  border="0" align="center" cellpadding="2" cellspacing="0" class="fenye">
+    <tr>
+      <td width="16px">&nbsp;</td>
+      <td><dl class="select yemashu">
+        <dt class="yemashu">10页/条</dt>
+        <dd class="yemashu1"> <span class="triangle-up"></span>
+          <ul>
+            <li><a href="#">10页/条</a></li>
+            <li><a href="#">20页/条</a></li>
+          </ul>
+        </dd>
+      </dl></td>
+      <td align="right"><span class="yema"><img src="../img/qian.png"/></span><span class="yemaon">1</span><span class="yema">2</span><span class="yema">3</span><span class="yema"><img src="../img/hou.png"/></span><span class="ye_qw">前往</span>
+        <input name="textfield5" type="text" class="yema_qw"/>
+        <span class="ye_qw">页</span></td>
+      <td width="6px">&nbsp;</td>
+    </tr>
+  </table>
+  
+</div>
+
+<!--弹框-->
+<div class="pop_wp" id="popShow">
+    <a href="javascript:;" class="pop_close"></a>
+    
+     <div class="pop_inner"><!--注销弹框-->
+        <div class="pop_tit">注销</div>
+        <div class="pop_txt">您确定要注销 xxx 受理点么？</div>
+        <div class="btns center">
+            <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
+            <button type="button" class="btn" onClick="closePopBox()">确定</button>
+        </div>
+    </div>
+    
+</div>
+
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/select.js" type="text/javascript"></script>
+<script src="../js/popup.js" type="text/javascript"></script>
+<script src="../js/jquery.webui-popover.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap-data/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap-data/bootstrap-datetimepicker.zh-CN.js" type="text/javascript"></script>
+<script>
+	(function(){
+		var settings = {
+			trigger:'hover',
+			multi:true,						
+			closeable:false,
+			style:'',
+			padding:true
+		};
+		function initPopover(){					
+			$('a.show-pop').webuiPopover('destroy').webuiPopover(settings);	
+		}
+		initPopover();	
+	})();	
+
+	/*弹窗共用操作*/
+	function showPopBox(index){
+		var box = $('.pop_inner');
+		var popClose = $('.pop_close');
+		box.hide().eq(index).show();
+		$('#popShow').popupOpen();
+		popClose.click(function(){
+			$('#popShow').hide();
+			$('#popShow').popupClose();
+		});
+	}
+	
+	function closePopBox(){
+		$('#popShow').hide();
+		$('#popShow').popupClose();
+	}
+	
+	$("#datetimeStart").datetimepicker({
+        format: 'yyyy-mm-dd hh:ii:ss',
+        /*minView:'month',*/
+		minView: 0,
+ 		minuteStep: 1,
+        language: 'zh-CN',
+        autoclose:true,
+        startDate:new Date()
+    }).on("click",function(){
+        $("#datetimeStart").datetimepicker("setEndDate",$("#datetimeEnd").val())
+    });
+    $("#datetimeEnd").datetimepicker({
+        format: 'yyyy-mm-dd hh:ii:ss',
+        /*minView:'month',*/
+		minView: 0,
+ 		minuteStep: 1,
+        language: 'zh-CN',
+        autoclose:true,
+        startDate:new Date()
+    }).on("click",function(){
+        $("#datetimeEnd").datetimepicker("setStartDate",$("#datetimeStart").val())
+    });
+</script>
+
+</body>
+</html>

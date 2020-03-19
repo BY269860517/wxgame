@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CA运营支撑管理平台" />
+<meta name="description" content="CA运营支撑管理平台" />
+<title>CA运营支撑管理平台</title>
+<link href="../css/css.css" rel="stylesheet" type="text/css"/>
+<link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
+<link href="../css/jquery.webui-popover.min.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+
+<div class="breadcrumb"><a href="javascript:history.back();">审计管理</a><img src="../img/breadcrumb_icon.png"/><a class="onlink">审计详情</a></div>
+
+<div class="layout_margin">
+    <div class="layout_tx">
+        <div class="kuang_title">审计详情</div>
+        <table width="100%" border="0" cellspacing="0" class="table_xq">
+          <tbody>
+            <tr>
+              <td width="150" class="tab_te_r">操作类型：</td>
+              <td width="280">
+              	<dl class="select">
+                    <dt><span>证书申请</span></dt>
+                    <dd>
+                        <span class="triangle-up"></span>
+                        <ul>
+                              <li><a href="jascript:;">证书申请</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+              </td>
+              <td width="150" class="tab_te_r">操作结果：</td>
+              <td>
+              	<dl class="select">
+                    <dt><span>成功</span></dt>
+                    <dd>
+                        <span class="triangle-up"></span>
+                        <ul>
+                              <li><a href="jascript:;">成功</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+              </td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">操作时间：</td>
+              <td><input type="text" name="" value="2018-9-9" /></td>
+              <td class="tab_te_r">操作者：</td>
+              <td><input type="text" name="" value="张三" /></td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">审计人：</td>
+              <td><input type="text" name="" value="李石" /></td>
+              <td class="tab_te_r">审计结果：</td>
+              <td><input type="text" name="" value="通过" /></td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">审计时间：</td>
+              <td colspan="3"><input type="text" name="" value="2019-9-9" /></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>	
+
+<div align="center" class="bottom_btn"><span class="tk_btn" onclick="history.back();">返回</span></div>
+
+
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/select.js" type="text/javascript"></script>
+<script src="../js/jquery.webui-popover.min.js" type="text/javascript"></script>
+<script>
+	(function(){
+		var settings = {
+			trigger:'hover',
+			multi:true,						
+			closeable:false,
+			style:'',
+			padding:true
+		};
+		function initPopover(){					
+			$('a.show-pop').webuiPopover('destroy').webuiPopover(settings);	
+		}
+		initPopover();	
+	})();
+	
+</script>
+
+</body>
+</html>

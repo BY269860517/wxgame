@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CA运营支撑管理平台" />
+<meta name="description" content="CA运营支撑管理平台" />
+<title>CA运营支撑管理平台</title>
+<link href="../css/css.css" rel="stylesheet" type="text/css"/>
+<link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
+<link href="../css/jquery.webui-popover.min.css" rel="stylesheet" type="text/css"/>
+<link href="../css/pop.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+
+<div class="breadcrumb"><a>证书配置管理</a><img src="../img/breadcrumb_icon.png"/></span><a href="javascript:history.back();">证书签发配置</a><img src="../img/breadcrumb_icon.png"/><a class="onlink">添加签发配置</a></div>
+
+<div class="layout_margin">
+    <div class="layout_tx">
+        <div class="kuang_title">证书签发配置信息</div>
+        <table width="100%" border="0" cellspacing="0" class="table_xq">
+          <tbody>
+            <tr>
+              <td width="10%" class="tab_te_r">业务系统：</td>
+              <td width="23%">
+                <dl class="select">
+                    <dt><span>请选择</span></dt>
+                    <dd>
+                        <span class="triangle-up"></span>
+                        <ul>
+                              <li><a href="jascript:;">全部</a></li>
+                              <li><a href="jascript:;">广东移动OA系统</a></li>
+                              <li><a href="jascript:;">南基4A系统</a></li>
+                              <li><a href="jascript:;">手机U盾系统</a></li>
+                              <li><a href="jascript:;">江苏移动电子签章系统</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+              </td>
+              <td width="10%" class="tab_te_r">证书算法：</td>
+              <td width="23%">
+                <dl class="select">
+                    <dt><span>请选择</span></dt>
+                    <dd>
+                        <span class="triangle-up"></span>
+                        <ul>
+                              <li><a href="jascript:;">RSA</a></li>
+                              <li><a href="jascript:;">SM2</a></li>
+                              <li><a href="jascript:;">ECC</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+              </td>
+              <td width="10%" class="tab_te_r">证书种类：</td>
+              <td>
+                <dl class="select">
+                    <dt><span>请选择</span></dt>
+                    <dd>
+                        <span class="triangle-up"></span>
+                        <ul>
+                              <li><a href="jascript:;">全部</a></li>
+                              <li><a href="jascript:;">个人证书</a></li>
+                              <li><a href="jascript:;">企业证书</a></li>
+                              <li><a href="jascript:;">账号证书</a></li>
+                              <li><a href="jascript:;">服务器证书</a></li>
+                              <li><a href="jascript:;">代码签名证书</a></li>
+                              <li><a href="jascript:;">EUM证书</a></li>
+                              <li><a href="jascript:;">EUICC证书</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+              </td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">应用项目：</td>
+              <td>
+                <dl class="select">
+                    <dt><span>请选择</span></dt>
+                    <dd>
+                        <span class="triangle-up"></span>
+                        <ul>
+                              <li><a href="jascript:;">全部</a></li>
+                              <li><a href="jascript:;">应用项目</a></li>
+                              <li><a href="jascript:;">广东OA</a></li>
+                              <li><a href="jascript:;">电子签章</a></li>
+                              <li><a href="jascript:;">南基4A</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+              </td>
+              <td class="tab_te_r">证书模板：</td>
+              <td>
+                <dl class="select">
+                    <dt><span>请选择</span></dt>
+                    <dd>
+                        <span class="triangle-up"></span>
+                        <ul>
+                              <li><a href="jascript:;">RSA个人单证书模板</a></li>
+                              <li><a href="jascript:;">SM2企业双证书模板</a></li>
+                              <li><a href="jascript:;">ECC服务器证书模板</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="layout_tx">
+        <div class="kuang_title">证书介质</div>
+        <table width="100%" border="0" cellspacing="0" class="table_xq">
+          <tbody>
+            <tr>
+              <td width="120" class="tab_te_r">软证书：</td>
+              <td>
+              	<table border="0">
+                  <tr>
+                    <td width="100">
+                     <input type="checkbox" id="yzs1" />
+                     <label for="yzs1">浏览器</label>
+                    </td>
+                    <td width="100">
+                     <input type="checkbox" id="rzs2" />
+                     <label for="rzs2">P12</label>
+                    </td>
+                    <td width="100">
+                     <input type="checkbox" id="rzs3" />
+                     <label for="rzs3">.keystore</label>
+                    </td>
+                    <td width="100">
+                     <input type="checkbox" id="rzs4" />
+                     <label for="rzs4">.cer</label>
+                    </td>
+                    <td width="100">
+                     <input type="checkbox" id="rzs5" />
+                     <label for="rzs5">自定义</label>
+                    </td>
+                  </tr>
+                </table>
+        	  </td>
+            </tr>
+            <tr>
+              <td width="120" class="tab_te_r">硬证书：</td>
+              <td>
+              	<table border="0">
+                  <tr>
+                    <td width="100">
+                     <input type="checkbox" id="yzs1" />
+                     <label for="yzs1">Ukey</label>
+                    </td>
+                    <td width="100">
+                     <input type="checkbox" id="yzs2" />
+                     <label for="yzs2">SIM卡</label>
+                    </td>
+                    <td width="100">
+                     <input type="checkbox" id="yzs3" />
+                     <label for="yzs3">SDkey</label>
+                    </td>
+                    <td width="100">
+                     <input type="checkbox" id="yzs4" />
+                     <label for="yzs4">其它</label>
+                    </td>
+                  </tr>
+                </table>
+        	  </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="layout_tx">
+        <div class="kuang_title">证书有效期</div>
+        <table width="100%" border="0" cellspacing="0" class="table_xq">
+          <tbody>
+            <tr>
+              <td width="120" class="tab_te_r">数量：</td>
+              <td><input type="text" name="" value=""></td>
+            </tr>
+            <tr>
+              <td width="120" class="tab_te_r">单位：</td>
+              <td>
+                <span class="mgr_r">
+                 <input type="radio" id="dw1" />
+                 <label for="dw1">年</label>
+                </span>
+                <span class="mgr_r">
+                 <input type="radio" id="dw2" />
+                 <label for="dw2">月</label>
+                </span>
+                <span class="mgr_r">
+                 <input type="radio" id="dw3" />
+                 <label for="dw3">日</label>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>	
+
+<div align="center" class="bottom_btn"><span class="tk_btn" onclick="history.back();">确定</span></div>
+
+<!--弹框-->
+<div class="pop_wp" id="popShow">
+    <a href="javascript:;" class="pop_close"></a>
+    
+     <div class="pop_inner"><!--删除弹框-->
+        <div class="pop_tit">删除</div>
+        <div class="pop_txt">是否删除此记录，删除后不可恢复。</div>
+        <div class="btns center">
+            <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
+            <button type="button" class="btn" onClick="closePopBox()">确定</button>
+        </div>
+    </div>
+    
+</div>
+
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/select.js" type="text/javascript"></script>
+<script src="../js/popup.js" type="text/javascript"></script>
+<script src="../js/jquery.webui-popover.min.js" type="text/javascript"></script>
+<script>
+	(function(){
+		var settings = {
+			trigger:'hover',
+			multi:true,						
+			closeable:false,
+			style:'',
+			padding:true
+		};
+		function initPopover(){					
+			$('a.show-pop').webuiPopover('destroy').webuiPopover(settings);	
+		}
+		initPopover();	
+	})();	
+
+	/*弹窗共用操作*/
+	function showPopBox(index){
+		var box = $('.pop_inner');
+		var popClose = $('.pop_close');
+		box.hide().eq(index).show();
+		$('#popShow').popupOpen();
+		popClose.click(function(){
+			$('#popShow').hide();
+			$('#popShow').popupClose();
+		});
+	}
+	
+	function closePopBox(){
+		$('#popShow').hide();
+		$('#popShow').popupClose();
+	}
+	
+</script>
+
+</body>
+</html>

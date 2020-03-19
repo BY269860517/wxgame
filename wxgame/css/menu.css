@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+body {font-family:"PingFangHK-Medium","Microsoft YaHei";font-size:14px;margin:0;overflow:auto; background-color:#f8f8f8;}
+li{list-style-type:none;}
+img{border-style:none;}
+p{line-height: 1.5em;}
+.menu{ width:180px; margin-bottom:10px; font-weight:100; padding:3px 0; font-size:14px;}
+ul.topnav {width:100%;padding: 0;margin: 0;font-size: 14px;line-height: 20px;list-style: none;display: block;text-decoration: none;}
+ul.topnav a {display: block;text-decoration: none;}
+ul.topnav li {text-indent:0px;}
+.bor_x{ /*border-bottom:#fff 1px solid;*/}
+ul.topnav li a {color:#4c4c4c;background-color:#f8f8f8;height:47px;line-height:47px;padding:0 12px 0 16px; border-right:#f8f8f8 3px solid;}
+/*ul.topnav li a:hover {color:#fff;background-color: #46bafe;}*/
+ul.topnav ul {margin: 0;padding: 0;display: none;}
+ul.topnav ul li {margin: 0;padding: 0;clear: both;}
+ul.topnav ul li a {background:#f2f2f2; border-right:#f2f2f2 3px solid; color:#666666;padding-left: 36px;}
+ul.topnav ul li a:hover {color:#4c7ceb;}
+ul.topnav ul ul li a {padding-left: 50px;color:#838383;}
+ul.topnav ul ul li a:hover {color:#4c7ceb;background: #f1f1f1;}
+ul.topnav ul ul ul li a {padding-left: 50px;}
+ul.topnav ul ul ul li a:hover {padding-left: 50px;}
+ul.topnav span{float:right;}
+ul.topnav ul ul li a{ background-color:#f1f1f1}
+.current{background:#dcf2ff !important;color:#4c4c4c !important; border-right:#4a7ceb 3px solid !important;}
+.current2{ color:#4c7cea !important;}
+ul.topnav ul ul li .current2{ color:#333 !important;}
+/*菜单箭头*/
+.cdopen{background:url(../img/open.png) no-repeat ;width:11px;height:8px;vertical-align:middle;display:inline-block;animation: mymove .3s}
+.cdclose{background:url(../img/close.png) no-repeat ;width:11px;height:8px;vertical-align:middle;display:inline-block;animation: mymove .3s}
+.current .cdopen {background:url(../img/openh.png) no-repeat ;animation: mymove .3s}
+.current2 .cdopen {background:url(../img/openh2.png) no-repeat;animation: mymove .3s}
+.current .cdclose {background:url(../img/closeh.png) no-repeat ;animation: mymove .3s}
+.current2 .cdclose {background:url(../img/closeh2.png) no-repeat ;animation: mymove .3s}
+@keyframes mymove
+{
+from {transform: rotate(-180deg)}
+to {transform: rotate(0deg)}
+}
+/*ul.topnav li a:hover .cdopen {background:url(../img/openh.png) no-repeat ;}
+ul.topnav li a:hover .cdclose {background:url(../img/closeh.png) no-repeat ;}
+ul.topnav ul  li a:hover .cdopen {background:url(../img/openh2.png) no-repeat ;}
+ul.topnav ul  li a:hover .cdclose {background:url(../img/closeh2.png) no-repeat ;}*/
+.dot{ width:4px; height:4px;background-color:#666666; display:inline-block;vertical-align:middle; margin-right:8px}
+ul.topnav li a:hover .dot{ width:4px; height:4px; background-color:#4c7ceb; display:inline-block;vertical-align:middle;}
+.current2 .dot{ width:4px; height:4px;background-color:#4c7cea; display:inline-block;vertical-align:middle;}
+ul.topnav ul ul li .current2 .dot{ width:4px; height:12px; background-color:#46bafe; display:inline-block;vertical-align:middle;transition:height .3s}
+
+/*菜单图标*/
+.icon1,.icon2,.icon3,.icon4,.icon5,.icon6,.icon7{ width:27px;height:18px;vertical-align:middle;display:inline-block;}
+.icon1{ background:url(../img/icon1.png) no-repeat;}
+/*li a:hover .icon1{background:url(../img/icon1h.png) no-repeat;}
+li a.current .icon1{background:url(../img/icon1h.png) no-repeat;}*/
+
+.icon2{ background:url(../img/icon2.png) no-repeat;}
+/*li a:hover .icon2{background:url(../img/icon2h.png) no-repeat;}
+li a.current .icon2{background:url(../img/icon2h.png) no-repeat;}*/
+
+.icon3{ background:url(../img/icon3.png) no-repeat;}
+/*li a:hover .icon3{background:url(../img/icon3h.png) no-repeat;}
+li a.current .icon3{background:url(../img/icon3h.png) no-repeat;}*/
+
+.icon4{ background:url(../img/icon4.png) no-repeat;}
+/*li a:hover .icon4{background:url(../img/icon4h.png) no-repeat;}
+li a.current .icon4{background:url(../img/icon4h.png) no-repeat;}*/
+
+.icon5{ background:url(../img/icon5.png) no-repeat;}
+/*li a:hover .icon5{background:url(../img/icon5h.png) no-repeat;}
+li a.current .icon5{background:url(../img/icon5h.png) no-repeat;}*/
+
+.icon6{ background:url(../img/icon6.png) no-repeat;}
+/*li a:hover .icon6{background:url(../img/icon6h.png) no-repeat;}
+li a.current .icon6{background:url(../img/icon6h.png) no-repeat;}*/
+
+.icon7{ background:url(../img/icon7.png) no-repeat;}

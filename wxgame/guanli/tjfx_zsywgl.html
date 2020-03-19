@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CA运营支撑管理平台" />
+<meta name="description" content="CA运营支撑管理平台" />
+<title>CA运营支撑管理平台</title>
+<link href="../css/css.css" rel="stylesheet" type="text/css"/>
+<link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
+<link href="../css/pop.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+
+<div class="breadcrumb"><a>统计分析</a><img src="../img/breadcrumb_icon.png"/></span><a class="onlink">证书业务概览</a></div>
+
+<div class="layout_tx layout_margin" style="overflow:hidden;">
+	<!--<table border="0" cellspacing="0" class="tongji_table">
+      <tbody>
+        <tr>
+          <td width="220">
+            <dl class="select">
+                <dt><span class="sel_placeholder">时间段</span></dt>
+                <dd>
+                    <span class="triangle-up"></span>
+                    <ul>
+                          <li><a href="jascript:;">年</a></li>
+                          <li><a href="jascript:;">季</a></li>
+                          <li><a href="jascript:;">月</a></li>
+                    </ul>
+                </dd>
+            </dl>
+          </td>
+          <td class="tab_te_r"><span class="btn">查询</span><span class="btn">重置</span></td>
+        </tr>
+      </tbody>
+	</table>-->
+    
+    <div class="w50 fl">
+        <div class="kuang_title">证书发放统计
+            <div class="fr"><span class="tk_btn">查询</span><span class="tk_btn">重置</span><span class="tk_btn">导出</span></div>
+        	<dl class="select fr" style="width:120px;">
+                <dt style="width:90px;"><span class="sel_placeholder">年</span></dt>
+                <dd style="width:110px;">
+                    <span class="triangle-up"></span>
+                    <ul>
+                          <li><a href="jascript:;">年</a></li>
+                          <li><a href="jascript:;">季</a></li>
+                          <li><a href="jascript:;">月</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div id="main1" style="height:300px;"></div>
+    </div>
+
+    <div class="w50 fl">
+    	<div class="kuang_title">总发证比例分布
+            <div class="fr"><span class="tk_btn">查询</span><span class="tk_btn">重置</span><span class="tk_btn">导出</span></div>
+        	<dl class="select fr" style="width:120px;">
+                <dt style="width:90px;"><span class="sel_placeholder">年</span></dt>
+                <dd style="width:110px;">
+                    <span class="triangle-up"></span>
+                    <ul>
+                          <li><a href="jascript:;">年</a></li>
+                          <li><a href="jascript:;">季</a></li>
+                          <li><a href="jascript:;">月</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div id="main2" style="height:300px;"></div>
+    </div>
+
+    <div class="w50 fl">
+    	<div class="kuang_title">新增证书量
+            <div class="fr"><span class="tk_btn">查询</span><span class="tk_btn">重置</span><span class="tk_btn">导出</span></div>
+        	<dl class="select fr" style="width:120px;">
+                <dt style="width:90px;"><span class="sel_placeholder">年</span></dt>
+                <dd style="width:110px;">
+                    <span class="triangle-up"></span>
+                    <ul>
+                          <li><a href="jascript:;">年</a></li>
+                          <li><a href="jascript:;">季</a></li>
+                          <li><a href="jascript:;">月</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div id="main3" style="height:300px;"></div>
+    </div>
+</div>
+
+<div class="layout_tx" style="overflow:hidden;">
+	<div class="kuang_title">CA应用增长情况<span class="tk_btn fr">导出</span></div>
+    <div id="main4" style="height:300px;"></div>
+
+</div>
+
+<div class="layout_tx" style="overflow:hidden;">
+	<div class="kuang_title">各省总证书发放量<span class="tk_btn fr">导出</span></div>
+    <div id="main5" style="height:300px;"></div>
+
+</div>
+
+<div class="w50 fl">
+    <div class="layout_tx tongji_comm1">
+        <div class="kuang_title">各省应用量占比<span class="tk_btn fr">导出</span></div>
+        <div id="main6" style="height:300px;"></div>
+    </div>
+</div>
+
+<div class="w50 fl">
+    <div class="layout_tx tongji_comm2">
+        <div class="kuang_title">top10 业务应用的证书量<span class="tk_btn fr">导出</span></div>
+        <div id="main7" style="height:300px;"></div>
+    </div>
+</div>
+
+
+<!--弹框-->
+<div class="pop_wp" id="popShow">
+    <a href="javascript:;" class="pop_close"></a>
+    
+     <div class="pop_inner"><!--新增证书量点击拐点弹出  showPopBox(0)-->
+        <div class="pop_tit">新增证书量</div>
+        <table  border="0" align="center" cellpadding="2" cellspacing="0" class="table">
+            <tr>
+              <th width="30%">应用单位</th>
+              <th width="40%">证书应用项目</th>
+              <th>18年新增（或一季度、或一月）</th>
+            </tr>
+            <tr>
+              <td>湖南省公司</td>
+              <td>湖南网准</td>
+              <td>xx</td>
+            </tr>
+            <tr>
+              <td>华为</td>
+              <td>一号多终端业务（华为二代手表）</td>
+              <td>xx</td>
+            </tr>
+            <tr>
+              <td>广东省公司</td>
+              <td>广东移动4G小基站</td>
+              <td>xx</td>
+            </tr>
+         </table>
+        <div class="btns center">
+            <button type="button" class="btn btn_h" onClick="closePopBox()">返回</button>
+            <button type="button" class="btn" onClick="closePopBox()">导出</button>
+        </div>
+    </div>
+    
+    <div class="pop_inner"><!--各省应用量占比点击扇面弹出  showPopBox(1)-->
+        <div class="pop_tit">各省证书量</div>
+        <table  border="0" align="center" cellpadding="2" cellspacing="0" class="table">
+            <tr>
+              <th>证书应用项目</th>
+              <th>累计发放</th>
+            </tr>
+            <tr>
+              <td>湖南网准</td>
+              <td>xx</td>
+            </tr>
+            <tr>
+              <td>湖南4A</td>
+              <td>xx</td>
+            </tr>
+            <tr>
+              <td>湖南4G小基站</td>
+              <td>xx</td>
+            </tr>
+         </table>
+        <div class="btns center">
+            <button type="button" class="btn btn_h" onClick="closePopBox()">返回</button>
+            <button type="button" class="btn" onClick="closePopBox()">导出</button>
+        </div>
+    </div>
+     
+    
+</div>
+
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/select.js" type="text/javascript"></script>
+<script src="../js/popup.js" type="text/javascript"></script>
+
+<!-- ECharts单文件引入 --> 
+<script src="../js/data/echarts.js"></script> 
+<script src="../js/data/tjfx_zsywgl_data.js"></script>
+
+<script>
+	/*弹窗共用操作*/
+	function showPopBox(index){
+		var box = $('.pop_inner');
+		var popClose = $('.pop_close');
+	
+		if(index == 0){
+			$('#popShow').addClass('pop_wp1');
+		}else{
+			$('#popShow').removeClass('pop_wp1');
+		}
+		
+		box.hide().eq(index).show();
+		$('#popShow').popupOpen();
+		popClose.click(function(){
+			$('#popShow').hide();
+			$('#popShow').popupClose();
+		});
+	}
+	
+	function closePopBox(){
+		$('#popShow').hide();
+		$('#popShow').popupClose();
+	}
+</script>
+
+</body>
+</html>

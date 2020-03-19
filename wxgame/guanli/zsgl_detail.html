@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CA运营支撑管理平台" />
+<meta name="description" content="CA运营支撑管理平台" />
+<title>CA运营支撑管理平台</title>
+<link href="../css/css.css" rel="stylesheet" type="text/css"/>
+<link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
+<link href="../css/jquery.webui-popover.min.css" rel="stylesheet" type="text/css"/>
+<link href="../css/pop.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+
+<div class="breadcrumb"><a href="javascript:history.back();">证书管理</a><img src="../img/breadcrumb_icon.png"/><a class="onlink">证书详情</a></div>
+
+<div class="layout_margin">
+    <div class="layout_tx">
+        <div class="kuang_title">证书详情</div>
+        <table width="100%" border="0" cellspacing="0" class="table_xq">
+          <tbody>
+            <tr>
+              <td width="10%" class="tab_te_r">证书种类：</td>
+              <td width="23%"><input type="text" name="" value="个人" /></td>
+              <td width="10%" class="tab_te_r">证书状态：</td>
+              <td width="23%"><input type="text" name="" value="有效" /></td>
+              <td width="10%" class="tab_te_r">证书类型：</td>
+              <td><input type="text" name="" value="双证书" /></td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">证书使用类型：</td>
+              <td><input type="text" name="" value="加密证书" /></td>
+              <td class="tab_te_r">证书有效期：</td>
+              <td><input type="text" name="" value="2017-9-9到2018-9-8" /></td>
+              <td class="tab_te_r">证书存储介质：</td>
+              <td><input type="text" name="" value="Ukey" /></td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">证书应用项目：</td>
+              <td><input type="text" name="" value="湖南手机支付" /></td>
+              <td class="tab_te_r">证书算法：</td>
+              <td><input type="text" name="" value="RSA" /></td>
+              <td class="tab_te_r">证书应用项目：</td>
+              <td><input type="text" name="" value="湖南手机支付" /></td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">证书算法：</td>
+              <td><input type="text" name="" value="RSA" /></td>
+              <td class="tab_te_r">查看证书：</td>
+              <td><div class="link_box"><a href="#" class="link">查看证书</a></div></td>
+              <td class="tab_te_r">证书审核员：</td>
+              <td><input type="text" name="" value="张三" /></td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">审核时间：</td>
+              <td><input type="text" name="" value="2017-9-9" /></td>
+              <td class="tab_te_r">证书DN：</td>
+              <td colspan="3"><input type="text" name="" value="sn=2017090989765,cn=李石.o=广州,c=cn" style="width:530px;" /></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="layout_tx">
+        <div class="kuang_title">申请者信息</div>
+        <table width="100%" border="0" cellspacing="0" class="table_xq">
+          <tbody>
+            <tr>
+              <td width="10%" class="tab_te_r">姓名：</td>
+              <td width="23%"><input type="text" name="" value="李石" /></td>
+              <td width="10%" class="tab_te_r">性别：</td>
+              <td width="23%"><input type="text" name="" value="男" /></td>
+              <td width="10%" class="tab_te_r">证件类型：</td>
+              <td><input type="text" name="" value="身份证" /></td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">证件号码：</td>
+              <td><input type="text" name="" value="422422198008084567" /></td>
+              <td class="tab_te_r">手机号码：</td>
+              <td><input type="text" name="" value="13956565656" /></td>
+              <td class="tab_te_r">邮箱：</td>
+              <td><input type="text" name="" value="139464664@139.com" /></td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">所属单位：</td>
+              <td><input type="text" name="" value="广州" /></td>
+              <td class="tab_te_r">所属部门：</td>
+              <td><input type="text" name="" value="广州" /></td>
+              <td class="tab_te_r">传真：</td>
+              <td><input type="text" name="" value="0769-87654323" /></td>
+            </tr>
+            <tr>
+              <td class="tab_te_r">邮编：</td>
+              <td><input type="text" name="" value="123456" /></td>
+              <td class="tab_te_r">地址：</td>
+              <td colspan="3"><input type="text" name="" value="广东省深圳时尚时尚" style="width:82%;" /></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>	
+
+<div align="center" class="bottom_btn"><span class="tk_btn" onclick="history.back();">冻结</span><span class="tk_btn" onClick="showPopBox(0)">吊销</span><span class="tk_btn" onclick="history.back();">邮件通知</span><span class="tk_btn" onclick="history.back();">短信通知</span></div>
+
+
+<!--弹框-->
+<div class="pop_wp" id="popShow">
+    <a href="javascript:;" class="pop_close"></a>
+    
+     <div class="pop_inner"><!--吊销弹框-->
+        <div class="pop_tit">证书吊销</div>
+        
+        <table width="100%" border="0" cellspacing="0" class="table_xq">
+          <tbody>
+            <tr>
+              <td width="30%" class="tab_te_r">请选择吊销原因：</td>
+              <td><input type="text" name="" value="秘钥泄露" style="width:90%" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="btns center">
+            <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
+            <button type="button" class="btn" onClick="closePopBox()">提交</button>
+        </div>
+    </div>
+    
+</div>
+
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/select.js" type="text/javascript"></script>
+<script src="../js/popup.js" type="text/javascript"></script>
+<script src="../js/jquery.webui-popover.min.js" type="text/javascript"></script>
+<script>
+	(function(){
+		var settings = {
+			trigger:'hover',
+			multi:true,						
+			closeable:false,
+			style:'',
+			padding:true
+		};
+		function initPopover(){					
+			$('a.show-pop').webuiPopover('destroy').webuiPopover(settings);	
+		}
+		initPopover();	
+	})();
+	
+	/*弹窗共用操作*/
+	function showPopBox(index){
+		var box = $('.pop_inner');
+		var popClose = $('.pop_close');
+		box.hide().eq(index).show();
+		$('#popShow').popupOpen();
+		popClose.click(function(){
+			$('#popShow').hide();
+			$('#popShow').popupClose();
+		});
+	}
+	
+	function closePopBox(){
+		$('#popShow').hide();
+		$('#popShow').popupClose();
+	}	
+	
+</script>
+
+</body>
+</html>

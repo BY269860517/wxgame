@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CA运营支撑管理平台" />
+<meta name="description" content="CA运营支撑管理平台" />
+<title>CA运营支撑管理平台</title>
+<link href="../css/css.css" rel="stylesheet" type="text/css"/>
+<link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
+<link href="../css/pop.css" rel="stylesheet" type="text/css"/>
+<link href="../css/jquery.webui-popover.min.css" rel="stylesheet" type="text/css"/>
+<link href="../css/bootstrap-date.css" rel="stylesheet" type="text/css" />
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+<div class="breadcrumb"><a>角色管理</a></div>
+
+<div class="layout_tx layout_margin la_rela" style="height:430px;">
+    <div class="kuang_title">角色列表
+    	<div class="fr">
+            <input type="text"  name="" size="20" placeholder="输入关键字" class="mgr_r" />
+            <span class="btn">查询</span>
+            <span class="btn">重置</span>
+            <span class="tk_btn" onClick="showPopBox(0);"><img src="../img/jia_icon.png"/> 新增</span>
+        </div>
+	</div>
+  
+	<table  border="0" align="center" cellpadding="2" cellspacing="0" class="table">
+        <tr>
+          <th width="8%">#</th>
+          <th width="25%">角色助记码</th>
+          <th width="25%">角色名称</th>
+          <th width="25%">角色描述</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1001</td>
+          <td>超级管理员角色</td>
+          <td>能够维护成员和组织信息、分配角色</td>
+          <td>
+          	<a onClick="showPopBox(1);" class="show-pop" data-placement="bottom" data-content="<span>修改</span>"><img src="../img/xiugai.png"/></a> 
+            <a onClick="showPopBox(2);" class="show-pop" data-placement="bottom" data-content="<span>删除</span>"><img src="../img/shanchu.png"/></a>
+            <a onClick="showPopBox(3);" class="show-pop" data-placement="bottom" data-content="<span>分配权限</span>"><img src="../img/fenpei.png"/></a>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>1002</td>
+          <td>管理员</td>
+          <td>能够分配角色</td>
+          <td>
+          	<a onClick="showPopBox(1);" class="show-pop" data-placement="bottom" data-content="<span>修改</span>"><img src="../img/xiugai.png"/></a> 
+            <a onClick="showPopBox(2);" class="show-pop" data-placement="bottom" data-content="<span>删除</span>"><img src="../img/shanchu.png"/></a>
+            <a onClick="showPopBox(3);" class="show-pop" data-placement="bottom" data-content="<span>分配权限</span>"><img src="../img/fenpei.png"/></a>
+          </td>
+        </tr>
+	</table>
+
+
+  <table  border="0" align="center" cellpadding="2" cellspacing="0" class="fenye">
+    <tr>
+      <td width="16px">&nbsp;</td>
+      <td><dl class="select yemashu">
+        <dt class="yemashu">10页/条</dt>
+        <dd class="yemashu1"> <span class="triangle-up"></span>
+          <ul>
+            <li><a href="#">10页/条</a></li>
+            <li><a href="#">20页/条</a></li>
+          </ul>
+        </dd>
+      </dl></td>
+      <td align="right"><span class="yema"><img src="../img/qian.png"/></span><span class="yemaon">1</span><span class="yema">2</span><span class="yema">3</span><span class="yema"><img src="../img/hou.png"/></span><span class="ye_qw">前往</span>
+        <input name="textfield5" type="text" class="yema_qw"/>
+        <span class="ye_qw">页</span></td>
+      <td width="6px">&nbsp;</td>
+    </tr>
+  </table>
+  
+</div>
+
+<!--弹框-->
+<div class="pop_wp" id="popShow">
+    <a href="javascript:;" class="pop_close"></a>
+    
+     <div class="pop_inner"><!--新增角色-->
+        <div class="pop_tit">新增角色</div>
+        <table width="100%" border="0" cellspacing="10" class="table_xq">
+          <tr>
+            <td width="35%" class="tab_te_r"><span class="f_red">*</span>角色助记码：</td>
+            <td><input type="text" name="" size="20"/></td>
+          </tr>
+          <tr>
+            <td class="tab_te_r"><span class="f_red">*</span>角色名称：</td>
+            <td><input type="text" name="" size="20"/></td>
+          </tr>
+          <tr>
+            <td class="tab_te_r">角色描述：</td>
+            <td><textarea name="" id="" style="width:180px"></textarea></td>
+          </tr>
+        </table>
+
+        <div class="btns center">
+            <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
+            <button type="button" class="btn" onClick="closePopBox()">确定</button>
+        </div>
+    </div>
+    
+     <div class="pop_inner"><!--修改角色-->
+        <div class="pop_tit">修改角色</div>
+        <table width="100%" border="0" cellspacing="10" class="table_xq">
+          <tr>
+            <td width="35%" class="tab_te_r"><span class="f_red">*</span>角色助记码：</td>
+            <td><input type="text" name="" size="20"/></td>
+          </tr>
+          <tr>
+            <td class="tab_te_r"><span class="f_red">*</span>角色名称：</td>
+            <td><input type="text" name="" size="20"/></td>
+          </tr>
+          <tr>
+            <td class="tab_te_r">角色描述：</td>
+            <td><textarea name="" id="" style="width:180px"></textarea></td>
+          </tr>
+        </table>
+
+        <div class="btns center">
+            <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
+            <button type="button" class="btn" onClick="closePopBox()">确定</button>
+        </div>
+    </div>
+    
+    <div class="pop_inner"><!--删除弹框-->
+        <div class="pop_tit">删除</div>
+        <div class="pop_txt">是否要删除成员 管理员？</div>
+        <div class="btns center">
+            <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
+            <button type="button" class="btn" onClick="closePopBox()">确定</button>
+        </div>
+    </div>
+    
+    <div class="pop_inner"><!--给管理员分配权限-->
+        <div class="pop_tit">给管理员分配权限</div>
+        <table width="30%" border="0" cellspacing="10" class="table_xq" align="center">
+          <tr>
+            <td>
+              <img src="../img/down.png">
+              <input type="checkbox" id="gly" />
+              <label for="gly">管理员</label>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left:21px;">
+              <input type="checkbox" id="hzyy" />
+              <label for="hzyy">合作引入</label>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left:21px;">
+              <input type="checkbox" id="htgl" />
+              <label for="htgl">合同管理</label>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left:21px;">
+              <input type="checkbox" id="khgl" />
+              <label for="khgl">考核管理</label>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left:21px;">
+              <input type="checkbox" id="jstc" />
+              <label for="jstc">结算退出</label>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left:21px;">
+              <input type="checkbox" id="gggl" />
+              <label for="gggl">公告管理</label>
+            </td>
+          </tr>
+        </table>
+        <div class="btns center">
+            <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
+            <button type="button" class="btn" onClick="closePopBox()">确定</button>
+        </div>
+    </div>
+    
+</div>
+
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/select.js" type="text/javascript"></script>
+<script src="../js/popup.js" type="text/javascript"></script>
+<script src="../js/jquery.webui-popover.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap-data/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap-data/bootstrap-datetimepicker.zh-CN.js" type="text/javascript"></script>
+<script>
+	(function(){
+		var settings = {
+			trigger:'hover',
+			multi:true,						
+			closeable:false,
+			style:'',
+			padding:true
+		};
+		function initPopover(){					
+			$('a.show-pop').webuiPopover('destroy').webuiPopover(settings);	
+		}
+		initPopover();	
+	})();	
+	
+	$("#datetimeStart").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView:'month',
+        language: 'zh-CN',
+        autoclose:true,
+        startDate:new Date()
+    }).on("click",function(){
+        $("#datetimeStart").datetimepicker("setEndDate",$("#datetimeEnd").val())
+    });
+    $("#datetimeEnd").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView:'month',
+        language: 'zh-CN',
+        autoclose:true,
+        startDate:new Date()
+    }).on("click",function(){
+        $("#datetimeEnd").datetimepicker("setStartDate",$("#datetimeStart").val())
+    });
+	
+	/*弹窗共用操作*/
+	function showPopBox(index){
+		var box = $('.pop_inner');
+		var popClose = $('.pop_close');
+		box.hide().eq(index).show();
+		$('#popShow').popupOpen();
+		popClose.click(function(){
+			$('#popShow').hide();
+			$('#popShow').popupClose();
+		});
+	}
+	
+	function closePopBox(){
+		$('#popShow').hide();
+		$('#popShow').popupClose();
+	}
+
+</script>
+
+</body>
+</html>
