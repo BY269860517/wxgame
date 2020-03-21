@@ -11,12 +11,12 @@ a{text-decoration:none; outline:none; color:#333;}
 .ziti{ font-size:0; line-height:0; z-index:-9999px;}
 .login_bg{ background:url(../img/login/login_bg.jpg) no-repeat center top;}
 .login_wrap{ position:relative; max-width:1366px; margin:0 auto;}
-.zw_lg{ width:406px; height:54px; background:url(../img/login/lg.png) no-repeat; position:absolute; top:26px; left:4%;}
+.zw_lg{ width:406px; height:54px;  no-repeat; position:absolute; top:26px; left:4%;}
 .login_box{ width:584px; min-height:180px; background:#fff; left:50%; top:240px; margin-left:-337px; padding:45px; border-radius:8px; position:absolute;}
 .login_box ul{width:265px; /*overflow:hidden;*/}
 .login_box li{ padding-bottom:12px; /*overflow:hidden;*/}
 .login_box p{ font-size:16px; color:#333; padding-bottom:20px;}
-.login_box input{ height:32px; line-height:32px; padding-left:30px; border:#d4e3e0 1px solid; color:#333; border-radius:5px; width:100%; background:rgba(67,67,67,.55); font-size:14px;}
+.login_box input{ height:32px; line-height:32px; padding-left:30px; border:#d4e3e0 1px solid; color:#333; border-radius:5px; width:100%; font-size:14px;}
 .login_box input.login_user{ background:url(../img/login/user.png) no-repeat 10px 8px;}
 .login_box input.login_pwd{ background:url(../img/login/pass.png) no-repeat 10px 8px;}
 .login_box input.login_mm{ width:52%; margin-right:3%; float:left; background:url(../img/login/mm.png) no-repeat 10px 8px;}

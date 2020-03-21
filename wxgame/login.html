@@ -2,34 +2,36 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="keywords" content="CA运营支撑管理平台" />
-<meta name="description" content="CA运营支撑管理平台" />
-<title>CA运营支撑管理平台</title>
+<!-- <meta name="keywords" content="CA运营支撑管理平台" />
+<meta name="description" content="CA运营支撑管理平台" /> -->
+<title>后台管理</title>
 <link href="css/login.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body class="login_bg">
 	<div class="login_wrap">
-        <div class="zw_lg ziti">CA运营支撑管理平台</div>   
+        <div class="zw_lg ziti">后台管理</div>   
+        <form id="login-form" method="post" onsubmit="return false;">
         <div class="login_box">
             <ul>
                 <li>
-                    <p>存储介质：</p>
-                    <select class="login_select">
-                    	<option>存储介质</option>
-                    	<option>存储介质</option>
-                    	<option>存储介质</option>
-                    </select>
+                    <p>后台登录：</p>
+                    <input type="text" id="username"  name="username"  placeholder="用户名">
+                    <input id="password" style="margin-top: 20px " type="password"  name="password"  placeholder="密码">
                 </li>
                 <li>
                     <p class="tishi">请求错误！</p>
                 </li>
                 <li>
-                   <a href="index.html" class="btn">证书登录</a>
+                        <a href="index.html" class="btn">证书登录</a>
+               
+                   <!-- <button class="btn" type="submit" onclick="login(this)">登录</button> -->
                 </li>
             </ul>
+
             <div class="login_tu"></div>
         </div>
+    </form>
     </div>
     
 	<script src="js/jquery.min.js" type="text/javascript"></script>

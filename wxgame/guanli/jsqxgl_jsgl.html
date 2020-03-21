@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="keywords" content="CA运营支撑管理平台" />
-<meta name="description" content="CA运营支撑管理平台" />
-<title>CA运营支撑管理平台</title>
+<meta name="keywords" content="Game后台管理" />
+<meta name="description" content="Game后台管理" />
+<title>Game后台管理</title>
 <link href="../css/css.css" rel="stylesheet" type="text/css"/>
 <link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
 <link href="../css/pop.css" rel="stylesheet" type="text/css"/>
@@ -21,9 +21,8 @@
 <div class="layout_tx layout_margin la_rela" style="height:430px;">
     <div class="kuang_title">角色列表
     	<div class="fr">
-            <input type="text"  name="" size="20" placeholder="输入关键字" class="mgr_r" />
+            <input type="text"  name="" size="20" placeholder="输入用户名" class="mgr_r" />
             <span class="btn">查询</span>
-            <span class="btn">重置</span>
             <span class="tk_btn" onClick="showPopBox(0);"><img src="../img/jia_icon.png"/> 新增</span>
         </div>
 	</div>
@@ -44,20 +43,9 @@
           <td>
           	<a onClick="showPopBox(1);" class="show-pop" data-placement="bottom" data-content="<span>修改</span>"><img src="../img/xiugai.png"/></a> 
             <a onClick="showPopBox(2);" class="show-pop" data-placement="bottom" data-content="<span>删除</span>"><img src="../img/shanchu.png"/></a>
-            <a onClick="showPopBox(3);" class="show-pop" data-placement="bottom" data-content="<span>分配权限</span>"><img src="../img/fenpei.png"/></a>
-          </td>
+         </td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>1002</td>
-          <td>管理员</td>
-          <td>能够分配角色</td>
-          <td>
-          	<a onClick="showPopBox(1);" class="show-pop" data-placement="bottom" data-content="<span>修改</span>"><img src="../img/xiugai.png"/></a> 
-            <a onClick="showPopBox(2);" class="show-pop" data-placement="bottom" data-content="<span>删除</span>"><img src="../img/shanchu.png"/></a>
-            <a onClick="showPopBox(3);" class="show-pop" data-placement="bottom" data-content="<span>分配权限</span>"><img src="../img/fenpei.png"/></a>
-          </td>
-        </tr>
+
 	</table>
 
 
@@ -141,52 +129,7 @@
         </div>
     </div>
     
-    <div class="pop_inner"><!--给管理员分配权限-->
-        <div class="pop_tit">给管理员分配权限</div>
-        <table width="30%" border="0" cellspacing="10" class="table_xq" align="center">
-          <tr>
-            <td>
-              <img src="../img/down.png">
-              <input type="checkbox" id="gly" />
-              <label for="gly">管理员</label>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding-left:21px;">
-              <input type="checkbox" id="hzyy" />
-              <label for="hzyy">合作引入</label>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding-left:21px;">
-              <input type="checkbox" id="htgl" />
-              <label for="htgl">合同管理</label>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding-left:21px;">
-              <input type="checkbox" id="khgl" />
-              <label for="khgl">考核管理</label>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding-left:21px;">
-              <input type="checkbox" id="jstc" />
-              <label for="jstc">结算退出</label>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding-left:21px;">
-              <input type="checkbox" id="gggl" />
-              <label for="gggl">公告管理</label>
-            </td>
-          </tr>
-        </table>
-        <div class="btns center">
-            <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
-            <button type="button" class="btn" onClick="closePopBox()">确定</button>
-        </div>
-    </div>
+
     
 </div>
 

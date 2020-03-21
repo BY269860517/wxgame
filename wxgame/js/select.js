@@ -1,9 +1,5 @@
 $(function(){
-	/*============================
-	@author:flc
-	@time:2014-02-11 18:16:09
-	@qq:3407725
-	============================*/
+
 	$(".select").each(function(){
 		var s=$(this);
 		var z=parseInt(s.css("z-index"));
@@ -15,6 +11,44 @@ $(function(){
 		dd.find("a").click(function(){dt.html($(this).html());_hide();});    //选择效果（如需要传值，可自定义参数，在此处返回对应的“value”值 ）
 		$("html").click(function(i){ !$(i.target).parents(".select").first().is(s) ? _hide():"";});
 	})
+
+
 })
+
+
+/**
+ * 登录js
+ */
+
+function login(obj) {
+	var user={
+		username:$("#username").val(),
+		password:$("#password").val()
+
+	}
+	$(obj).attr("disabled", true);
+
+	var username = $.trim($('#username').val());
+	var password = $.trim($('#password').val());
+	if (username == "" || password == "") {
+		$("#info").html('用户名或者密码不能为空');
+		$(obj).attr("disabled", false);
+	} else {
+		$.ajax({
+			type : 'post',
+			url : '${pageContext.request.contextPath }/Login/login',
+			contentType: "application/json;character:utf-8",
+			data : JSON.stringify(user),
+			success : function(result) {
+
+			},
+			error : function(xhr, textStatus, errorThrown) {
+			
+			}
+		});
+
+	}
+}
+
 
 
