@@ -11,7 +11,7 @@ a{text-decoration:none; outline:none; color:#333;}
 .ziti{ font-size:0; line-height:0; z-index:-9999px;}
 .login_bg{ background:url(../img/login/login_bg.jpg) no-repeat center top;}
 .login_wrap{ position:relative; max-width:1366px; margin:0 auto;}
-.zw_lg{ width:406px; height:54px;  no-repeat; position:absolute; top:26px; left:4%;}
+.zw_lg{ width:406px; height:54px;  no-repeat; position:absolute; top:26px; left:4%; }
 .login_box{ width:584px; min-height:180px; background:#fff; left:50%; top:240px; margin-left:-337px; padding:45px; border-radius:8px; position:absolute;}
 .login_box ul{width:265px; /*overflow:hidden;*/}
 .login_box li{ padding-bottom:12px; /*overflow:hidden;*/}

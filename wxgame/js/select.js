@@ -22,8 +22,8 @@ $(function(){
 
 function login(obj) {
 	var user={
-		username:$("#username").val(),
-		password:$("#password").val()
+		userName:$("#username").val(),
+		passWord:$("#password").val()
 
 	}
 	$(obj).attr("disabled", true);
@@ -31,24 +31,57 @@ function login(obj) {
 	var username = $.trim($('#username').val());
 	var password = $.trim($('#password').val());
 	if (username == "" || password == "") {
-		$("#info").html('用户名或者密码不能为空');
+		$(".tishi").html('用户名或者密码不能为空');
 		$(obj).attr("disabled", false);
 	} else {
+		$(".tishi").html('');
 		$.ajax({
 			type : 'post',
-			url : '${pageContext.request.contextPath }/Login/login',
-			contentType: "application/json;character:utf-8",
+			url : 'http://192.168.0.106:9097/game/login/login',
+			contentType: "application/json",
 			data : JSON.stringify(user),
 			success : function(result) {
-
+				if(result.code==-1){
+					$(".tishi").html(result.msg);
+					$(obj).attr("disabled", false);
+				}else {
+				  localStorage.setItem("tokens",result.data.token);
+					location.href = 'index.html';
+				}
+              console.log(result);
 			},
 			error : function(xhr, textStatus, errorThrown) {
-			
+				$(".tishi").html("登录失败，请联系管理员！");
 			}
 		});
 
 	}
 }
-
+/**
+ * 退出
+ */
+function longOut(){
+	debugger
+	var token=window.localStorage.getItem("tokens");
+		$.ajax({
+			 type : 'post',
+			 url : 'http://192.168.0.106:9097/game/login/out',
+	   contentType: "application/json",
+	   headers:{"token":token},
+			 success : function(result) {
+				 if(result.code==-1){
+					 $(".tishi").html(result.msg);
+					 $(obj).attr("disabled", false);
+				 }else {
+				   localStorage.setItem("tokens",result.data.session_id);
+					 location.href = 'index.html';
+				 }
+			   console.log(result);
+			 },
+			 error : function(xhr, textStatus, errorThrown) {
+				 $(".tishi").html("登录失败，请联系管理员！");
+			 }
+		 });
+  }
 
 

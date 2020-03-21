@@ -37,3 +37,8 @@ body  /*ie*/
 ::-webkit-scrollbar-corner {  
   background: transparent;  
 }
+
+.yxip{
+  margin-bottom: 20px;
+  margin-left: 20px;
+}

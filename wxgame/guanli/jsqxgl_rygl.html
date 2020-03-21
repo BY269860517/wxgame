@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="keywords" content="CA运营支撑管理平台" />
-<meta name="description" content="CA运营支撑管理平台" />
-<title>CA运营支撑管理平台</title>
+<meta name="keywords" content="Game管理平台" />
+<meta name="description" content="Game管理平台" />
+<title>Game管理平台</title>
 <link href="../css/css.css" rel="stylesheet" type="text/css"/>
 <link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
 <link href="../css/pop.css" rel="stylesheet" type="text/css"/>
@@ -15,25 +15,35 @@
 
 <body>
 
-<div class="breadcrumb"><a>人员管理</a></div>
+<div class="breadcrumb"><a>小游戏列表</a></div>
 
 <div class="layout_tx layout_margin la_rela" style="height:430px;">
-    <div class="kuang_title">人员列表
+    <div class="kuang_title">小游戏列表
     	<div class="fr">
         	<dl class="select fl mgr_r">
-                <dt><span class="sel_placeholder">状态</span></dt>
+                <dt><span class="sel_placeholder">游戏名称</span></dt>
                 <dd>
                     <span class="triangle-up"></span>
                     <ul>
-                          <li><a href="jascript:;">全部</a></li>
+                          <li><a href="jascript:;">4399</a></li>                          
+                          <li><a href="jascript:;">4299</a></li>
                     </ul>
                 </dd>
             </dl>
-            <input type="text"  name="" size="20" placeholder="用户名/真实姓名" class="fl mgr_r" />
-            <span class="fl">
+            <dl class="select fl mgr_r">
+                <dt><span class="sel_placeholder">马甲包关联游戏</span></dt>
+                <dd>
+                    <span class="triangle-up"></span>
+                    <ul>
+                          <li><a href="jascript:;">马甲包1</a></li>                          
+                          <li><a href="jascript:;">马甲包2</a></li>
+                    </ul>
+                </dd>
+            </dl>
+         <span class="fl">
                 <span class="btn">查询</span>
                 <span class="btn">重置</span>
-                <span class="tk_btn" onClick="showPopBox(0);"><img src="../img/jia_icon.png"/> 新增</span>
+                <span class="tk_btn" onClick="showPopBox(0);"><img src="../img/jia_icon.png"/> 添加游戏</span>
             </span>
         </div>
 	</div>
@@ -41,12 +51,14 @@
 	<table  border="0" align="center" cellpadding="2" cellspacing="0" class="table">
         <tr>
           <th width="8%">#</th>
-          <th width="10%">用户名</th>
-          <th width="12%">真实姓名</th>
-          <th width="6%">性别</th>
-          <th width="14%">手机</th>
-          <th width="22%">邮箱</th>
-          <th width="10%">状态</th>
+          <th width="10%">游戏ID</th>
+          <th width="10%">小程序ID</th>
+          <th width="10%">游戏名称</th>
+          <th width="10%">支付切换</th>
+          <th width="10%">审核切换</th>
+          <th width="10%">回调地址</th>
+          <th width="10%">渠道链接</th>
+          <th width="10%">关联游戏</th>
           <th>操作</th>
         </tr>
         <tr>
@@ -56,22 +68,12 @@
           <td>男</td>
           <td>13688888888</td>
           <td>13688888888@139.com</td>
-          <td>正常</td>
-          <td>
-              <a onClick="showPopBox(1);" class="show-pop" data-placement="bottom" data-content="<span>修改</span>"><img src="../img/xiugai.png"/></a> 
-              <a onClick="showPopBox(2);" class="show-pop" data-placement="bottom" data-content="<span>删除</span>"><img src="../img/shanchu.png"/></a> 
-              <a onClick="showPopBox(3);" class="show-pop" data-placement="bottom" data-content="<span>分配角色</span>"><img src="../img/juese.png"/></a> 
-              <a onClick="showPopBox(4);" class="show-pop" data-placement="bottom" data-content="<span>（解）锁定</span>"><img src="../img/jiesuo.png"/></a>
+          <td>回调地址</td>
+          <td>渠道链接</td>
+          <td>   <a onClick="showPopBox(5);" class="show-pop" data-placement="bottom" data-content="<span>修改</span>"><img src="../img/xiugai.png"/></a> 
+          
           </td>
-        </tr>
-        <tr>
-          <td>2</td>
-     	  <td>dengjl</td>
-          <td>管理员</td>
-          <td>男</td>
-          <td>13799999999</td>
-          <td>13799999999@139.com</td>
-          <td>正常</td>
+    
           <td>
               <a onClick="showPopBox(1);" class="show-pop" data-placement="bottom" data-content="<span>修改</span>"><img src="../img/xiugai.png"/></a> 
               <a onClick="showPopBox(2);" class="show-pop" data-placement="bottom" data-content="<span>删除</span>"><img src="../img/shanchu.png"/></a> 
@@ -108,53 +110,17 @@
     <a href="javascript:;" class="pop_close"></a>
     
      <div class="pop_inner"><!--新增人员-->
-        <div class="pop_tit">新增角色</div>
+        <div class="pop_tit">添加游戏</div>
         <table width="100%" border="0" cellspacing="10" class="table_xq">
           <tr>
-            <td class="tab_te_r"><span class="f_red">*</span> 用户名：</td>
-            <td><input type="text" name="" size="20"/></td>
-            <td class="tab_te_r"><span class="f_red">*</span> 真实姓名：</td>
+            <td class="tab_te_r"><span class="f_red">*</span> 游戏名称:</td>
             <td><input type="text" name="" size="20"/></td>
           </tr>
           <tr>
-            <td class="tab_te_r"><span class="f_red">*</span> 性别：</td>
-            <td><dl class="select">
-                <dt>男</dt>
-                <dd><span class="triangle-up"></span>
-                    <ul>
-                        <li><a href="#">男</a></li>
-                        <li><a href="#">女</a></li>
-                    </ul>
-                </dd>
-                </dl></td>
-            <td class="tab_te_r"><span class="f_red">*</span> 手机：</td>
+            <td class="tab_te_r"><span class="f_red">*</span> 小程序ID:</td>
             <td><input type="text" name="" size="20"/></td>
           </tr>
-          <tr>
-            <td class="tab_te_r">部门：</td>
-            <td><dl class="select">
-                <dt>测试部门</dt>
-                <dd> <span class="triangle-up"></span>
-                    <ul>
-                        <li><a href="#">测试部门</a></li>
-                    </ul>
-                </dd>
-                </dl></td>
-            <td class="tab_te_r">固定电话：</td>
-            <td><input type="text" name="" size="20"/></td>
-          </tr>
-          <tr>
-            <td class="tab_te_r"><span class="f_red">*</span> 邮箱：</td>
-            <td><input type="text" name="" size="20"/></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="tab_te_r"><span class="f_red">*</span> 初始密码：</td>
-            <td><input type="text" name="" size="20"/></td>
-            <td class="tab_te_r"><span class="f_red">*</span> 确认密码</td>
-            <td><input type="text" name="" size="20"/></td>
-          </tr>
+        
         </table>
 
         <div class="btns center">
