@@ -42,3 +42,12 @@ body  /*ie*/
   margin-bottom: 20px;
   margin-left: 20px;
 }
+input[type="password"], .link_box {
+  border: #d6e1e5 1px solid !important;
+  width: 178px;
+  height: 32px;
+  border-radius: 3px;
+  padding: 0 10px;
+  color: #333;
+}
+.layui-layer-setmybg .layui-layer-content{color:black;}

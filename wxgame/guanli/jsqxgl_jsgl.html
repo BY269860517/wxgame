@@ -11,7 +11,8 @@
 <link href="../css/jquery.webui-popover.min.css" rel="stylesheet" type="text/css"/>
 <link href="../css/bootstrap-date.css" rel="stylesheet" type="text/css" />
 <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
-
+<link href="../layui/css/layui.css" rel="stylesheet" type="text/css" />
+<link href="../layui/css/global.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -21,13 +22,20 @@
 <div class="layout_tx layout_margin la_rela" style="height:430px;">
     <div class="kuang_title">角色列表
     	<div class="fr">
-            <input type="text"  name="" size="20" placeholder="输入用户名" class="mgr_r" />
-            <span class="btn">查询</span>
+            <input type="text" id="demoReload" name="" size="20" placeholder="输入用户名" class="mgr_r" />
+            <span class="btn" data-type="reload">查询</span>
             <span class="tk_btn" onClick="showPopBox(0);"><img src="../img/jia_icon.png"/> 新增</span>
         </div>
-	</div>
-  
-	<table  border="0" align="center" cellpadding="2" cellspacing="0" class="table">
+  </div>
+  <script type="text/html" id="barDemo">
+    <a class="show-pop" lay-event="edit" data-content="<span>修改</span>"><img src="../img/xiugai.png"/></a>
+    <a class="show-pop" lay-event="del" data-content="<span>删除</span>"><img src="../img/shanchu.png"/></a>
+
+    <!-- <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a> -->
+  </script>
+  <table class="table" id="test"  lay-filter="test"></table> 
+	<!-- <table  border="0" align="center" cellpadding="2" cellspacing="0" class="table">
         <tr>
           <th width="8%">#</th>
           <th width="25%">角色助记码</th>
@@ -67,7 +75,7 @@
       <td width="6px">&nbsp;</td>
     </tr>
   </table>
-  
+   -->
 </div>
 
 <!--弹框-->
@@ -78,22 +86,22 @@
         <div class="pop_tit">新增角色</div>
         <table width="100%" border="0" cellspacing="10" class="table_xq">
           <tr>
-            <td width="35%" class="tab_te_r"><span class="f_red">*</span>角色助记码：</td>
-            <td><input type="text" name="" size="20"/></td>
+            <td width="35%" class="tab_te_r"><span class="f_red">*</span>用户名：</td>
+            <td><input type="text" id="userName" name="" size="20"/></td>
           </tr>
           <tr>
-            <td class="tab_te_r"><span class="f_red">*</span>角色名称：</td>
-            <td><input type="text" name="" size="20"/></td>
+            <td class="tab_te_r"><span class="f_red">*</span>密码：</td>
+            <td><input type="password" id="passWord" name="" size="20"/></td>
           </tr>
           <tr>
-            <td class="tab_te_r">角色描述：</td>
-            <td><textarea name="" id="" style="width:180px"></textarea></td>
-          </tr>
+              <td class="tab_te_r"><span class="f_red">*</span>手机号码：</td>
+              <td><input type="text" id="phone" name="" size="20"/></td>
+            </tr>
         </table>
 
         <div class="btns center">
             <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
-            <button type="button" class="btn" onClick="closePopBox()">确定</button>
+            <button type="button" class="btn" onClick="addUser()">确定</button>
         </div>
     </div>
     
@@ -116,7 +124,7 @@
 
         <div class="btns center">
             <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
-            <button type="button" class="btn" onClick="closePopBox()">确定</button>
+            <button type="button" class="btn" onClick="addUser()">确定</button>
         </div>
     </div>
     
@@ -141,7 +149,11 @@
 <script src="../js/jquery.webui-popover.min.js" type="text/javascript"></script>
 <script src="../js/bootstrap-data/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 <script src="../js/bootstrap-data/bootstrap-datetimepicker.zh-CN.js" type="text/javascript"></script>
+<script type="text/javascript" src="../layui/layui.js"></script>
+<script type="text/javascript" src="../config/config.js"></script>
 <script>
+
+  
 	(function(){
 		var settings = {
 			trigger:'hover',
@@ -190,7 +202,110 @@
 	function closePopBox(){
 		$('#popShow').hide();
 		$('#popShow').popupClose();
-	}
+  }
+  
+  /**
+   * 新增用户方法
+   */
+  function addUser(){
+    debugger
+    var Name =$("#userName").val();
+    var pwd=$("#passWord").val();
+    var ph=$("#phone").val();
+       var user ={};
+       //空校验
+       if(Name&&pwd&&ph){
+        user.userName=Name;
+        user.passWord=pwd;
+        user.mobile=ph;
+       }else{
+        layer.msg('字段不能为空',{icon: 5,time:1000}); 
+         return false;
+       }
+       $.ajax({
+			type : 'post',
+			url : contextValus.contextPath+'/admin/addUser',
+			contentType: "application/json",
+			data : JSON.stringify(user),
+			success : function(result) {
+        //成功
+				if(result.code==0){
+          layer.msg(result.msg,{icon: 5,time:1000}); 
+          $('#popShow').hide();
+         $('#popShow').popupClose();
+         location.href ="/guanli/jsqxgl_jsgl.html"
+				}else {
+          layer.msg(result.msg,{icon: 5,time:1000}); 
+          return false
+				}
+            
+			},
+			error : function(xhr, textStatus, errorThrown) {
+        layer.msg('新增失败，请联系管理员！',{icon: 5,time:1000});
+			}
+		});
+
+
+
+  }
+
+  /**
+   * 列表数据渲染
+   */
+   layui.use(['jquery','table'], function(){
+    layer.config({
+  skin: 'layui-layer-setmybg'
+  
+})
+		var table = layui.table;
+		table.render({
+			elem: '#test'
+			,method:'POST'
+			,contentType: 'application/json'
+      ,url:contextValus.contextPath+'/admin/list'
+      ,
+      cellMinWidth: 80,
+			title: '用户数据表'
+    
+      ,cols: [[
+      {field:'id', title: 'ID'}
+      ,{field:'userName', title: '用户名'}
+      ,{field:'passWord', title: '密码'}
+      ,{field:'mobile', title: '手机号码'}
+      ,{field:'right', title: '操作', toolbar: '#barDemo'}
+    
+    ]],id: 'testReload'
+			,page: true
+    });
+  /**
+   * 条件查询
+   */
+   var $ = layui.$, active = {
+			reload: function(){
+				var demoReload = $('#demoReload');
+				//执行重载
+				table.reload('testReload', {
+					page: {
+						curr: 1 //重新从第 1 页开始
+					}
+					,where: {
+            //传入条件
+						userName:demoReload.val()
+					
+					}
+				}, 'data');
+			}
+		};
+
+		$('.fr .btn').on('click', function(){
+			var type = $(this).data('type');
+			active[type] ? active[type].call(this) : '';
+		});
+
+
+
+  });
+
 
 </script>
 

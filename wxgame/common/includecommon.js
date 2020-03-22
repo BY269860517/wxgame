@@ -14,6 +14,4 @@ document.writeln('<script src="../js/bootstrap-data/bootstrap-datetimepicker.zh-
 document.writeln('<script src="../js/bootstrap-data/bootstrap-datetimepicker.zh-CN.js" type="text/javascript"></script>');
 document.writeln('<script src="../js/vue.js" type="text/javascript"></script>');
 document.writeln('<script src="../js/vue-easytable.js" type="text/javascript"></script>');
-
-
 document.writeln('<script src="../config/config.js" type="text/javascript"></script>');

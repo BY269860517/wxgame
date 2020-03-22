@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="Game后台管理" />
+<meta name="description" content="Game后台管理" />
+<title>Game后台管理</title>
+<link href="../css/css.css" rel="stylesheet" type="text/css"/>
+<link href="../css/scroll.css" rel="stylesheet" type="text/css"/>
+<link href="../css/pop.css" rel="stylesheet" type="text/css"/>
+<link href="../css/jquery.webui-popover.min.css" rel="stylesheet" type="text/css"/>
+<link href="../css/bootstrap-date.css" rel="stylesheet" type="text/css" />
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+<template>
+    <div>
+        <!-- 卡片视图区域 -->
+        <el-card class="box-card">
+            <!-- 搜索与添加区域 -->
+            <el-row :gutter="20">
+                <el-col :span="8">
+                    <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear="getUserList()">
+                        <el-button slot="append" icon="el-icon-search" @click="getUserList()"></el-button>
+                    </el-input>
+                </el-col>
+                <el-col :span="4">
+                    <el-button type="primary">添加用户</el-button>
+                </el-col>
+            </el-row>
+            <!-- 用户列表区域 -->
+            <el-table :data="userList" :stripe="true" :border="true">
+                <el-table-column type="index"></el-table-column>
+                <el-table-column prop="username" label="用户名称"></el-table-column>
+                <el-table-column prop="email" label="邮箱"></el-table-column>
+                <el-table-column prop="mobile" label="电话"></el-table-column>
+                <el-table-column prop="role_name" label="角色"></el-table-column>
+                <el-table-column prop="mg_state" label="状态">
+                    <template slot-scope="scope">
+                        <el-switch v-model="scope.row.mg_state" @change="userStateChange(scope.row)">
+                        </el-switch>
+                    </template>
+                </el-table-column>
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <!-- 修改按钮 -->
+                        <el-button type="primary" icon="el-icon-edit" size="mini"></el-button>
+                        <!-- 删除按钮 -->
+                        <el-button type="danger" icon="el-icon-delete" size="mini"></el-button>
+                        <!-- 分配角色按钮 -->
+                        <el-tooltip  effect="dark" content="分配角色" placement="top" :enterable="false">
+                            <el-button type="warning" icon="el-icon-setting" size="mini"></el-button>
+                        </el-tooltip>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <!-- 分页区域 -->
+            <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="queryInfo.pagenum"
+                :page-sizes="[1, 2, 5, 10]"
+                :page-size="queryInfo.pagesize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="total">
+            </el-pagination>
+        </el-card>
+    </div>
+    <script src="common/includecommon.js" type="text/javascript"></script>
+</template>
+
+<script>
+    
+export default {
+  data () {
+    return {
+      // 获取用户列表的参数对象
+      queryInfo: {
+        // 查询参数
+        query: '',
+        // 当前的页码数
+        pagenum: 1,
+        // 每页显示多少条数据
+        pagesize: 2
+      },
+      // 获取的用户列表
+      userList: [],
+      // 总数
+      total: 0
+    }
+  },
+  created () {
+    this.getUserList()
+  },
+  methods: {
+    async getUserList () {
+      const {data: res} = await this.$http.get('users', {
+        params: this.queryInfo
+      })
+      if (res.meta.status !== 200) {
+        return this.$message('获取用户列表失败！')
+      }
+      this.userList = res.data.users
+      this.total = res.data.total
+      console.log(res)
+    },
+    // 监听 pageSize 改变的事件
+    handleSizeChange (newSize) {
+    //  将监听接受到的每页显示多少条的数据 newSzie 赋值给 pagesize
+      this.queryInfo.pagesize = newSize
+      //  修改完以后，重新发起请求获取一次数据
+      this.getUserList()
+    },
+    // 监听 页码值  改变的事件
+    handleCurrentChange (newPage) {
+    //  将监听接受到的页码值的数据 newPage 赋值给 pagenum
+      this.queryInfo.pagenum = newPage
+      //  修改完以后，重新发起请求获取一次数据
+      this.getUserList()
+    },
+    // 监听 switch 开关状态的改变
+    async userStateChange (userInfo) {
+      console.log(userInfo)
+      const {data: res} = await this.$http.put(`users/${userInfo.id}/state/${userInfo.mg_state}`)
+      if (res.meta.status !== 200) {
+        // 更新失败，将状态返回初始状态
+        this.userInfo.mg_state = !this.userInfo.mg_state
+        this.$message.error('更新用户状态失败！')
+      }
+      this.$message.success('更新用户状态成功！')
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+
+</style>
+</body>
+</html>

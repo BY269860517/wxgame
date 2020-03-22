@@ -1,3 +1,4 @@
+// import * as Math from "./config/config.js";
 $(function(){
 
 	$(".select").each(function(){
@@ -8,7 +9,7 @@ $(function(){
 		var _show=function(){dd.slideDown(200);dt.addClass("cur");s.css("z-index",z+1);};  //展开效果
 		var _hide=function(){dd.slideUp(200);dt.removeClass("cur");s.css("z-index",z);};   //关闭效果
 		dt.click(function(){dd.is(":hidden")?_show():_hide();});
-		dd.find("a").click(function(){dt.html($(this).html());_hide();});    //选择效果（如需要传值，可自定义参数，在此处返回对应的“value”值 ）
+	//	dd.find("a").clicks(function(){dt.html($(this).html());_hide();});    //选择效果（如需要传值，可自定义参数，在此处返回对应的“value”值 ）
 		$("html").click(function(i){ !$(i.target).parents(".select").first().is(s) ? _hide():"";});
 	})
 
@@ -21,6 +22,8 @@ $(function(){
  */
 
 function login(obj) {
+	var vt=contextValus.contextPath;
+	var d=name;
 	var user={
 		userName:$("#username").val(),
 		passWord:$("#password").val()
@@ -37,7 +40,7 @@ function login(obj) {
 		$(".tishi").html('');
 		$.ajax({
 			type : 'post',
-			url : 'http://192.168.0.106:9097/game/login/login',
+			url : contextValus.contextPath+'/login/login',
 			contentType: "application/json",
 			data : JSON.stringify(user),
 			success : function(result) {
@@ -63,9 +66,10 @@ function login(obj) {
 function longOut(){
 	debugger
 	var token=window.localStorage.getItem("tokens");
+	
 		$.ajax({
 			 type : 'post',
-			 url : 'http://192.168.0.106:9097/game/login/out',
+			 url : contextValus.contextPath+'/login/out',
 	   contentType: "application/json",
 	   headers:{"token":token},
 			 success : function(result) {

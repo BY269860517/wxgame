@@ -12,3 +12,8 @@
 .btns .btn_h:hover{ background:#ececec;}
 
 .pop_wp1{ width:800px;}
+/*新增table*/
+#test{
+margin-left: 20px;
+margin-right: 20px;
+}
