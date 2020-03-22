@@ -24,10 +24,13 @@ textarea:focus , textarea:hover{ box-shadow:0 0 6px #9ae2ff; outline:none;}
 .la_rela{ position:relative;padding-bottom:100px;}
 
 /*表格*/
-.table{width:100%;border-collapse:collapse;font-size:14px;text-align:left;/*table-layout: fixed*/}
+/*.table{width:100%;border-collapse:collapse;font-size:14px;text-align:left;}/*table-layout: fixed*/
+.table{width:100%;border-collapse:collapse;font-size:14px;text-align:center;/*table-layout: fixed*/}
 .table2{padding:8px 0;}
-.table th{background:#f1f8ff;height:51px;text-align:left;color:#6d7684;font-weight:100;}
-.table tr td{background:#fff; height:44px; border-bottom:1px solid #eee;/*white-space: nowrap;overflow: hidden;text-overflow: ellipsis;*/}
+/*.table th{background:#f1f8ff;height:51px;text-align:left;color:#6d7684;font-weight:100;}*/
+.table th{background:#f2f2f2;height:51px;text-align:center;color:#666;font-weight:100;border-width: 1px;border-style: solid;border-color: #e6e6e6;}
+/*.table tr td{background:#fff; height:44px; border-bottom:1px solid #eee;}*//*white-space: nowrap;overflow: hidden;text-overflow: ellipsis;*/
+.table tr td{background:#fff; height:44px; border-width: 1px;border-style: solid;border-color: #e6e6e6;}
 .table tr td:first-child ,.table tr th:first-child{ padding-left:30px;}
 .table tr td:last-child ,.table tr th:last-child{ padding-right:30px;}
 .table tr.alt td{background:#f6f6f6;}
