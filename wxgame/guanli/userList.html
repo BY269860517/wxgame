@@ -68,22 +68,22 @@
         <div class="pop_tit">修改角色</div>
         <table width="100%" border="0" cellspacing="10" class="table_xq">
           <tr>
-            <td width="35%" class="tab_te_r"><span class="f_red">*</span>角色助记码：</td>
-            <td><input type="text" name="" size="20"/></td>
+            <td width="35%" class="tab_te_r"><span class="f_red">*</span>用户名：</td>
+            <td><input type="text" id="userEditName" name="" size="20"/></td>
           </tr>
           <tr>
-            <td class="tab_te_r"><span class="f_red">*</span>角色名称：</td>
-            <td><input type="text" name="" size="20"/></td>
+            <td class="tab_te_r"><span class="f_red">*</span>密码：</td>
+            <td><input type="password" id="userEditPwd" name="" size="20"/></td>
           </tr>
           <tr>
-            <td class="tab_te_r">角色描述：</td>
-            <td><textarea name="" id="" style="width:180px"></textarea></td>
+            <td class="tab_te_r"><span class="f_red">*</span>手机号码：</td>
+            <td><input type="text" id="userEditPhone" name="" size="20"/></td>
           </tr>
         </table>
-
+        <input type="text" style="display:none" id="Id" />
         <div class="btns center">
             <button type="button" class="btn btn_h" onClick="closePopBox()">取消</button>
-            <button type="button" class="btn" onClick="addUser()">确定</button>
+            <button type="button" class="btn" onClick="editUser()">确定</button>
         </div>
     </div>
     
@@ -192,7 +192,7 @@
           layer.msg(result.msg,{icon: 5,time:1000}); 
           $('#popShow').hide();
          $('#popShow').popupClose();
-         location.href ="/guanli/jsqxgl_jsgl.html"
+         location.href ="/guanli/userList.html"
 				}else {
           layer.msg(result.msg,{icon: 5,time:1000}); 
           return false
@@ -207,7 +207,54 @@
 
 
   }
+ /**
+   /**
+     * 编辑确认事件
+     */
+   
+   function editUser(){
+    var Name =$("#userEditName").val();
+    var pwd=$("#userEditPwd").val();
+    var ph=$("#userEditPhone").val();
+   var addid= $("#Id").val();
+       var user ={};
+       //空校验
+       if(Name&&pwd&&ph){
+        user.userName=Name;
+        user.passWord=pwd;
+        user.mobile=ph;
+        user.id=addid;
 
+       }else{
+        layer.msg('字段不能为空',{icon: 5,time:1000}); 
+         return false;
+       }
+       $.ajax({
+			type : 'post',
+			url : contextValus.contextPath+'/admin/update',
+			contentType: "application/json",
+			data : JSON.stringify(user),
+			success : function(result) {
+        //成功
+				if(result.code==0){
+          layer.msg(result.msg,{icon: 5,time:1000}); 
+          $('#popShow').hide();
+         $('#popShow').popupClose();
+         location.href ="/guanli/userList.html"
+				}else {
+          layer.msg(result.msg,{icon: 5,time:1000}); 
+          return false
+				}
+            
+			},
+			error : function(xhr, textStatus, errorThrown) {
+        layer.msg('修改失败，请联系管理员！',{icon: 5,time:1000});
+			}
+		});
+
+
+
+  }
   /**
    * 列表数据渲染
    */
@@ -261,7 +308,40 @@
 			active[type] ? active[type].call(this) : '';
 		});
 
+	//监听行工具事件
+  table.on('tool(test)', function(obj){
+      var data = obj.data;
+     var user={}
+     user.id=data.id;
+			var arr = [];
+			arr.push(data);
+			if(obj.event === 'del'){
+				layer.confirm('真的删除行么', function(index){
+					$.ajax({
+						type : 'post',
+						url : contextValus.contextPath+'admin/delete',
+						async : false,
+						contentType: 'application/json',
+						data : JSON.stringify(user),
+						success : function(result) {
+							layer.msg(result.msg);
+						}
+					});
+					obj.del();
+					layer.close(index);
+				});
+			} else if(obj.event === 'edit'){
+        showPopBox(1);
+      //	window.location = '${pageContext.request.contextPath }/url/skipUpdateIsCheckClassify?id=' + data.id;
+          $("#userEditName").val(data.userName);
+          $("#userEditPwd").val(data.passWord);
+          $("#userEditPhone").val(data.mobile);
+            $("#Id").val(data.id);
 
+			}
+    });
+    
+ 
 
   });
 
